@@ -1,0 +1,25 @@
+name: Build ATRAC Japanese English DMG
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: macos-15-intel
+    defaults:
+      run:
+        working-directory: ATRAC_Mac_JA_EN_DMG_GitHub_Build
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Build Japanese and English DMG
+        run: bash BUILD_MAC_DMG_ONLY.sh
+      - name: Upload both DMGs
+        uses: actions/upload-artifact@v4
+        with:
+          name: ATRAC-JA-EN-DMG
+          path: ATRAC_Mac_JA_EN_DMG_GitHub_Build/output/*.dmg
+          if-no-files-found: error
