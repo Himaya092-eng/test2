@@ -1,0 +1,1 @@
+Upload files to GitHub repository preserving folders. Actions > Build ATRAC Japanese English DMG > Run workflow. Download ATRAC-JA-EN-DMG artifact. No PKG. macOS build untested. Not signed/notarized. macOS helper binaries not included; some conversion/download functions may need macOS equivalents.\n
